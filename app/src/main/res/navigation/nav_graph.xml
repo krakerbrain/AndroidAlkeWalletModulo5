@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.alkewalletmodulocinco.view.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/navigate_splashFragment_to_loginSignUpFragment"
+            app:destination="@id/loginSignUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginSignUpFragment"
+        android:name="com.example.alkewalletmodulocinco.view.fragments.LoginSignUpFragment"
+        android:label="fragment_login_sign_up"
+        tools:layout="@layout/fragment_login_sign_up" >
+
+        <action
+            android:id="@+id/action_loginSignUpFragment_to_signAndLoginFragment"
+            app:destination="@id/signAndLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signAndLoginFragment"
+        android:name="com.example.alkewalletmodulocinco.view.fragments.SignAndLoginFragment"
+        android:label="fragment_sign_and_login"
+        tools:layout="@layout/fragment_sign_and_login" >
+        <argument
+            android:name="isLogin"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_signAndLoginFragment_to_homePageFragment"
+            app:destination="@id/homePageFragment"
+            />
+        <action
+            android:id="@+id/action_signAndLoginFragment_self"
+            app:destination="@id/signAndLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.alkewalletmodulocinco.view.fragments.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" />
+</navigation>
