@@ -1,7 +1,6 @@
 package com.example.alkewalletmodulocinco.view.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,14 +28,12 @@ class HomePageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.d("HomePageFragment", "onViewCreated called")
-
         homePageViewModel.userData.observe(viewLifecycleOwner) { user ->
             user?.let { userData ->
                 val fragment =
                     HeaderHomePageFragment.newInstance(userData.firstName, userData.points.toDouble())
                 childFragmentManager.beginTransaction()
-                    .replace(R.id.formContainerHomePage, fragment)
+                    .replace(R.id.headerContainerHomePage, fragment)
                     .commit()
                 // Agregar el TransactionListFragment
                 val transactionListFragment = TransactionListFragment()
@@ -48,6 +45,9 @@ class HomePageFragment : Fragment() {
                 }
                 binding.ingresarDinero.setOnClickListener {
                     findNavController().navigate(R.id.action_homePageFragment_to_ingresarDineroFragment)
+                }
+                binding.headerContainerHomePage.profileImg.setOnClickListener {
+                    findNavController().navigate(R.id.action_homePageFragment_to_profileFragment)
                 }
             }
         }

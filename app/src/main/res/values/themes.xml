@@ -43,4 +43,8 @@
         <item name="backgroundTint">@color/verde</item>
         <item name="cornerRadius">10dp</item>
     </style>
+    <style name="imagenProfile">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">25%</item>
+    </style>
 </resources>

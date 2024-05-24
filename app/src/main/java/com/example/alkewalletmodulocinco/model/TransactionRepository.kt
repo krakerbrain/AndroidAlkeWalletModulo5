@@ -14,6 +14,7 @@ class TransactionRepository {
         transactions.add(Transaction(1000, "Compra en línea", sdf.format(Date()), "Pago", 123456, 1, 987654))
         transactions.add(Transaction(500, "Depósito", sdf.format(Date()), "Ingreso", 123457, 1, 0))
         transactions.add(Transaction(300, "Transferencia", sdf.format(Date()), "Pago", 123458, 2, 987654))
+        transactions.add(Transaction(1300, "Estufa", sdf.format(Date()), "Pago", 123458, 1, 987654))
     }
 
     fun getTransactions(userId: Int): List<Transaction> {

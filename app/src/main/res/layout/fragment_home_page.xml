@@ -22,7 +22,7 @@
         app:layout_constraintGuide_end="21dp" />
 
     <include
-        android:id="@+id/formContainerHomePage"
+        android:id="@+id/headerContainerHomePage"
         layout="@layout/fragment_header_home_page" />
 
     <com.google.android.material.button.MaterialButton
@@ -37,7 +37,7 @@
         app:iconGravity="textStart"
         app:iconTint="@color/black"
         app:layout_constraintStart_toStartOf="@id/guidelineizquierda"
-        app:layout_constraintTop_toBottomOf="@id/formContainerHomePage" />
+        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/ingresar_dinero"
@@ -47,7 +47,7 @@
         app:icon="@drawable/request_icon"
         app:iconGravity="textStart"
         app:layout_constraintEnd_toEndOf="@id/guidelinederecha"
-        app:layout_constraintTop_toBottomOf="@id/formContainerHomePage"
+        app:layout_constraintTop_toBottomOf="@id/headerContainerHomePage"
         android:layout_marginTop="21dp"
         style="@style/boton_azul_alke"
         android:paddingHorizontal="1dp"/>
