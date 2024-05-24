@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.alkewalletmodulocinco.R
 import com.example.alkewalletmodulocinco.databinding.FragmentHomePageBinding
 import com.example.alkewalletmodulocinco.viewmodel.HomePageViewModel
@@ -31,7 +32,6 @@ class HomePageFragment : Fragment() {
         Log.d("HomePageFragment", "onViewCreated called")
 
         homePageViewModel.userData.observe(viewLifecycleOwner) { user ->
-
             user?.let { userData ->
                 val fragment =
                     HeaderHomePageFragment.newInstance(userData.firstName, userData.points.toDouble())
@@ -43,6 +43,12 @@ class HomePageFragment : Fragment() {
                 childFragmentManager.beginTransaction()
                     .replace(R.id.transactionsContainer, transactionListFragment)
                     .commit()
+                binding.enviarDinero.setOnClickListener {
+                    findNavController().navigate(R.id.action_homePageFragment_to_enviarDineroFragment)
+                }
+                binding.ingresarDinero.setOnClickListener {
+                    findNavController().navigate(R.id.action_homePageFragment_to_ingresarDineroFragment)
+                }
             }
         }
     }
@@ -52,3 +58,4 @@ class HomePageFragment : Fragment() {
         _binding = null
     }
 }
+

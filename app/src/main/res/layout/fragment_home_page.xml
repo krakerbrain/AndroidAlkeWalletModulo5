@@ -21,14 +21,9 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="21dp" />
 
-    <FrameLayout
+    <include
         android:id="@+id/formContainerHomePage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        layout="@layout/fragment_header_home_page" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/enviar_dinero"

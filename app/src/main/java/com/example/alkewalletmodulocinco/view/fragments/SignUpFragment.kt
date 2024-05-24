@@ -40,6 +40,7 @@ class SignUpFragment : Fragment() {
                 if (signUpViewModel.signUp(user)) {
                     // Registro exitoso
                     Toast.makeText(requireContext(), "Registro exitoso", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
                 } else {
                     // Error en el registro
                     Toast.makeText(requireContext(), "Error en el registro", Toast.LENGTH_SHORT).show()
@@ -51,17 +52,17 @@ class SignUpFragment : Fragment() {
         }
 
         binding.tieneCuenta.setOnClickListener {
-            findNavController().navigate(R.id.action_signAndLoginFragment_self)
+            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
 
     }
 
     private fun getUserFromInputFields(): User? {
-        val nombre = binding.editNombreInput.text.toString()
-        val apellido = binding.editApellidoInput.text.toString()
-        val email = binding.editEmailInput.text.toString()
-        val password = binding.editPassInput.text.toString()
-        val confirmPassword = binding.editConfirmPassInput.text.toString()
+        val nombre = binding.includeSignupForm.editNombreInput.text.toString()
+        val apellido = binding.includeSignupForm.editApellidoInput.text.toString()
+        val email = binding.includeSignupForm.editEmailInput.text.toString()
+        val password = binding.includeSignupForm.editPassInput.text.toString()
+        val confirmPassword = binding.includeSignupForm.editConfirmPassInput.text.toString()
 
         // Devolver un objeto User con los datos ingresados por el usuario si son válidos
         return if (nombre.isNotEmpty() && apellido.isNotEmpty() && email.isNotEmpty() &&

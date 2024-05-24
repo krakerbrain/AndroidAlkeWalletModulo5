@@ -27,15 +27,11 @@ class LoginSignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tieneCuenta.setOnClickListener {
-            findNavController().navigate(R.id.action_loginSignUpFragment_to_signAndLoginFragment)
+            findNavController().navigate(R.id.action_loginSignUpFragment_to_loginFragment)
         }
 
         binding.creaCuenta.setOnClickListener {
-            val isLogin = arguments?.getBoolean("isLogin", true) ?: false
-            //enviar parametro en findNavController
-            val bundle = Bundle()
-            bundle.putBoolean("isLogin", isLogin)
-            findNavController().navigate(R.id.action_loginSignUpFragment_to_signAndLoginFragment, bundle)
+            findNavController().navigate(R.id.action_loginSignUpFragment_to_signUpFragment)
         }
     }
     override fun onDestroyView() {

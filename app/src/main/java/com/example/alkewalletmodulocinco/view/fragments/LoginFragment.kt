@@ -44,11 +44,11 @@ class LoginFragment : Fragment() {
 
                             // Verificar si los datos del usuario no son nulos
                             userData?.let {
-                                // Configurar los datos del usuario en el ViewModel de HomePageFragment
+//                                // Configurar los datos del usuario en el ViewModel de HomePageFragment
                                 homePageViewModel.setUserData(it)
 
                                 // Navegar al HomePageFragment
-                                findNavController().navigate(R.id.action_signAndLoginFragment_to_homePageFragment)
+                                findNavController().navigate(R.id.action_loginFragment_to_homePageFragment)
                             } ?: run {
                                 Toast.makeText(
                                     requireContext(),

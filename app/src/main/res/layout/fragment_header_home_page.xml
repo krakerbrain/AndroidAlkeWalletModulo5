@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/hola_amanda"
+            android:text="Hola, [nombre_cliente]"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/random_money"
+            android:text="[saldo cliente]"
             android:textColor="@color/white"
             android:textSize="32sp" />
     </LinearLayout>
