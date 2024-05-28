@@ -68,7 +68,15 @@ class SignUpFragment : Fragment() {
         return if (nombre.isNotEmpty() && apellido.isNotEmpty() && email.isNotEmpty() &&
             password.isNotEmpty() && confirmPassword.isNotEmpty() && password == confirmPassword) {
             User(nombre, apellido, email, password,0,0)
-        } else {
+        }  else {
+            // Contraseñas no coinciden o algún campo está vacío, retornar null
+            if (password != confirmPassword) {
+                // Contraseñas no coinciden
+                Toast.makeText(requireContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+            } else {
+                // Alguno de los campos está vacío
+                Toast.makeText(requireContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+            }
             null
         }
 

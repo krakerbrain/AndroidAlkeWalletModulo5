@@ -1,5 +1,6 @@
 package com.example.alkewalletmodulocinco.viewmodel
 
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,6 +9,7 @@ import com.example.alkewalletmodulocinco.model.User
 import com.example.alkewalletmodulocinco.model.UserRepository
 import com.example.alkewalletmodulocinco.model.LoginRequest
 import com.example.alkewalletmodulocinco.model.LoginResponse
+import com.example.alkewalletmodulocinco.util.AppConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,7 +23,6 @@ class LoginViewModel : ViewModel() {
     private val _errorLiveData = MutableLiveData<String>()
     val errorLiveData: LiveData<String> get() = _errorLiveData
 
-    private var isDevelopmentMode = true // Variable para cambiar entre modo desarrollo y real
 
     fun login(email: String, password: String) {
         if (!isEmailValid(email)) {
@@ -29,7 +30,7 @@ class LoginViewModel : ViewModel() {
             return
         }
 
-        if (isDevelopmentMode) {
+        if (AppConfig.isDevelopmentMode) {
             loginWithHardcodedData(email, password)
         } else {
             loginWithApi(email, password)
@@ -57,6 +58,7 @@ class LoginViewModel : ViewModel() {
         userRepository.login(loginRequest, object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
+                    Log.d("LoginViewModel", "Login successful: $response")
                     val user = User("Juan", "Perez", email, password, 1, 100) // Ajusta según respuesta real
                     _userLiveData.value = user
                 } else {
@@ -65,6 +67,7 @@ class LoginViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                Log.e("LoginViewModel", "Error al iniciar sesión", t)
                 _errorLiveData.value = "Error de red: ${t.message}"
             }
         })
